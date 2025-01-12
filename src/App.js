@@ -29,13 +29,23 @@ function App() {
 
       </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <div className="App-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/study-plan" element={<Study_Plan />} />
         <Route path="/progress-tracker" element={<Progress_Tracker />} />
         <Route path="/credits" element={<Credit />} />
-      </Routes>
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </div>
+
+
+
+      <footer className="App-Footer">
+        <p>© 2025 FocusFlow. All rights reserved.</p>
+      </footer>
+
     </div>
   );
 }

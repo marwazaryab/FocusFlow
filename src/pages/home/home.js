@@ -23,20 +23,20 @@ function Home() {
 
           <button className="study_plan " >
 
-          <p> Generate your personalized study plan!</p>
+          <p> Generate your personalized study plan here</p>
 
           </button>
 
           <button className='progress_tracker'>
 
-          <p> View your progress_tracker!</p>
+          <p> View your progress tracker here</p>
 
           </button>
 
 
           <button className='tracker'>
 
-          <p> Resources!</p>
+          <p> View resources on your preferred subject</p>
           
           </button>
 
