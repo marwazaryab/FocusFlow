@@ -8,6 +8,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+      <img
+        className="logo"
+        src="/logo.png"
+        alt="FocusFlow"
+        style={{position: 'absolute', top: '15px', left: '20px', width: '70px', height: 'auto', objectFit: 'contain'}}
+      />
         <nav>
           <ul className="space-x-4">
             
