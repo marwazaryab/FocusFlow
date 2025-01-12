@@ -23,7 +23,37 @@ function Home() {
         <h1>FocusFlow!</h1>
         <p>Higher Grades, work quality and lower stress.</p>
         <p>Join your AI study buddy and say goodbye to overwhelming days.</p>
+
+        <div className = "button_container">
+
+          <button className="study_plan " >
+
+          <p> Generate your personalized study plan!</p>
+
+          </button>
+
+
+          <button className='progress_tracker'>
+
+          <p> View your progress_tracker!</p>
+
+          </button>
+
+
+          <button className='tracker'>
+
+          <p> Resources!</p>
+          
+          </button>
+
+
+
       </div>
+      </div>
+
+      
+
+
     </div>
   );
 }

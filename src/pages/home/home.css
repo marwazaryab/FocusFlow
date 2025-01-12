@@ -26,3 +26,25 @@
     font-weight:bold
   }
   
+.button_container {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 20px; 
+  }
+
+  button {
+    padding: 12px 20px;
+    background-color: #3c282b; 
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+  }
+  
+  button:hover {
+    background-color: #56150a; 
+  }
