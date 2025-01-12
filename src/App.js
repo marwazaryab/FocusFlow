@@ -13,7 +13,7 @@ function App() {
         className="logo"
         src="/logo.png"
         alt="FocusFlow"
-        style={{position: 'absolute', top: '15px', left: '20px', width: '70px', height: 'auto', objectFit: 'contain'}}
+        style={{position: 'absolute', top: '14px', left: '15px', width: '55px', height: 'auto', objectFit: 'contain'}}
       />
         <nav>
           <ul className="space-x-4">
