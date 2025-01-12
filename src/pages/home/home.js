@@ -27,7 +27,6 @@ function Home() {
 
           </button>
 
-
           <button className='progress_tracker'>
 
           <p> View your progress_tracker!</p>
