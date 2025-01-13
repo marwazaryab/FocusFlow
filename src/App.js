@@ -18,13 +18,14 @@ function App() {
           src="/logo.png"
           alt="FocusFlow"
           style={{position: 'absolute', top: '14px', left: '15px', width: '55px', height: 'auto', objectFit: 'contain'}}
-        />
-          <nav>
-            <ul className="space-x-4">
-            
-            </ul>
-          </nav>
+        />  
       </a>
+
+      <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
+              <Link to="/creators">
+                <button>Creators of App</button>
+              </Link>
+            </div>
       
 
       </header>
