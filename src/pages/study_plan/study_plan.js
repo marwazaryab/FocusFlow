@@ -11,55 +11,59 @@ const StudyPlan = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const formatDate = (date) => {
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  };
+
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        setError('');
-      
-        const requestData = {
-          goals,
-          deadlines,
-          preferences,
-          date: date.toISOString(), 
-        };
-      
-        try {
-          const response = await fetch('http://localhost:5002/api/study_plan', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData),
-          });
-      
-          if (!response.ok) {
-            throw new Error('errror msg: failed to fetch study plan');
-          }
-      
-          const data = await response.json();
-      
-          setStudyPlanData((prev) => ({
-            ...prev,
-            [date.toLocaleDateString()]: data, 
-          }));
-      
-          // Clear form inputs
-          setGoals('');
-          setDeadlines('');
-          setPreferences('');
-        } catch (err) {
-          setError(err.message);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
 
-// front end 
+    const requestData = {
+      goals,
+      deadlines,
+      preferences,
+      date: date.toISOString(),
+    };
+
+    try {
+      const response = await fetch('http://localhost:5003/api/study_plan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error: failed to fetch study plan');
+      }
+
+      const data = await response.json();
+      const { dailyTasks } = data;
+
+      console.log('Returned studyPlanData:', dailyTasks);
+      setStudyPlanData(dailyTasks || {});
+      setGoals('');
+      setDeadlines('');
+      setPreferences('');
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const formattedDate = formatDate(date);
+
   return (
     <div className="study-plan-container">
       <div className="form-container">
@@ -88,7 +92,7 @@ const StudyPlan = () => {
               id="deadlines"
               value={deadlines}
               onChange={(e) => setDeadlines(e.target.value)}
-              placeholder="Enter your deadlines (mm/dd/yy)"
+              placeholder="Enter your deadlines (mm/dd/yyyy)"
             />
           </div>
 
@@ -101,8 +105,9 @@ const StudyPlan = () => {
               placeholder="Enter your study preferences (short/long sessions etc)"
             />
           </div>
+
           <button type="submit" disabled={isLoading}>
-            {isLoading ? 'Generating...' : 'Add to Calendar'} 
+            {isLoading ? 'Generating...' : 'Generate Study Plan'}
           </button>
         </form>
       </div>
@@ -115,21 +120,28 @@ const StudyPlan = () => {
         />
       </div>
 
-      {studyPlanData[date.toLocaleDateString()] && (
+      {studyPlanData && studyPlanData[formattedDate] ? (
         <div className="study-plan-output">
-          <h2>Study Plan for {date.toLocaleDateString()}:</h2>
-          <div>
-            <h3>Goals:</h3>
-            <p>{studyPlanData[date.toLocaleDateString()].goals}</p>
-          </div>
-          <div>
-            <h3>Deadlines:</h3>
-            <p>{studyPlanData[date.toLocaleDateString()].deadlines}</p>
-          </div>
-          <div>
-            <h3>Preferences:</h3>
-            <p>{studyPlanData[date.toLocaleDateString()].preferences}</p>
-          </div>
+          <h2 className="plan-date">📅 Study Plan for {formattedDate}:</h2>
+          <ul className="task-list">
+            {studyPlanData[formattedDate]
+              .split('\n')
+              .filter((task) => task.trim() !== '')
+              .map((task, index) => (
+                <li key={index} className="task-item">
+                  {task}
+                </li>
+              ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="study-plan-output">
+          <h2>No study plan available for {formattedDate}</h2>
+          <p>
+            {studyPlanData && Object.keys(studyPlanData).length > 0
+              ? 'Select a date with tasks in your study plan.'
+              : 'Generate a study plan to display tasks.'}
+          </p>
         </div>
       )}
     </div>
