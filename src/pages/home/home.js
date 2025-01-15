@@ -28,19 +28,6 @@ function Home() {
             </button>
           </Link>
 
-          <Link to="/progress_tracker">
-            <button className='progress_tracker'>
-            <p> View your progress tracker here</p>
-            </button>
-          </Link>
-
-          <Link to="tracker">
-            <button className='tracker'>
-              <p> View resources on your preferred subject</p>
-            </button>
-          </Link>
-
-
 
         </div>
       </div>
