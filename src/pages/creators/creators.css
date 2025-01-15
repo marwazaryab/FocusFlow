@@ -1,0 +1,24 @@
+h1 {
+    font-size: 8rem;
+    /* margin-bottom: 40px; */
+    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:bold;
+    color: black;
+
+  }
+h2 {
+    font-size: 4rem;
+    /* margin-bottom: 40px; */
+    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:bold;
+    text-align: center;
+    color: black;
+
+}
+p {
+    font-size: 1.5rem;
+    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:bold;
+    color: black;
+
+}
