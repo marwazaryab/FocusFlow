@@ -3,8 +3,7 @@ import './App.css';
 import { Link } from 'react-router-dom';
 import Home from './pages/home/home';  
 import Study_Plan from './pages/study_plan/study_plan';
-import Progress_Tracker from './pages/progress_tracker/progress_tracker';
-import Credit from './pages/credit/credit';
+import Creators from './pages/creators/creators';
 import { Routes, Route } from 'react-router-dom'; 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
       </Link>
 
       <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
-              <Link to="/creators">
+              <Link to= "/creators">
                 <button>Creators of App</button>
               </Link>
             </div>
@@ -33,11 +32,9 @@ function App() {
       <div className="App-content">
         <Routes>
           <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/study-plan" element={<Study_Plan />} />
-        <Route path="/progress-tracker" element={<Progress_Tracker />} />
-        <Route path="/credits" element={<Credit />} />
+          <Route path = "/creators" element = {<Creators />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/study-plan" element={<Study_Plan />} />
         </Routes>
       </div>
 
