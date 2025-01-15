@@ -1,24 +1,68 @@
-.about-us-container h1 {
-    font-size: 8rem;
-    /* margin-bottom: 40px; */
-    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight:bold;
-    color: black;
-
-  }
-.about-us-container h2 {
-    font-size: 4rem;
-    /* margin-bottom: 40px; */
-    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight:bold;
+.about-us-container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    color: black;
-
+    padding: 20px;
+    justify-content: flex-start;
+    min-height: 115vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-y: auto;
 }
-.about-us-container{
-    font-size: 1.5rem;
-    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight:bold;
-    color: black;
 
+.about-us-container h1 {
+    font-size: 6vw;
+    margin-bottom: 10px;
+    color: black;
+    font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    max-width: 100%;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    color: gray;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.contributors-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+    overflow-y: visible; 
+    gap: 20px;
+}
+
+.contributor-item {
+    text-align: center;
+}
+
+.contributor-photo {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px;
+}
+
+.contributor-item h3 {
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+}
+
+/*different styles for phone*/
+@media (max-width: 768px) {
+
+    .about-us-container {
+        min-height: 230vh; 
+    }
 }
