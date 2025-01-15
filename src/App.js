@@ -12,14 +12,14 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-      <a href="/home">
+      <Link to = "/home">
         <img
           className="logo"
           src="/logo.png"
           alt="FocusFlow"
           style={{position: 'absolute', top: '14px', left: '15px', width: '55px', height: 'auto', objectFit: 'contain'}}
         />  
-      </a>
+      </Link>
 
       <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
               <Link to="/creators">
