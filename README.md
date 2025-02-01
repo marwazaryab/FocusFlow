@@ -12,6 +12,9 @@ Using AI, FocusFlow generates personalized study plans based on user input such 
 - **Personalized Preferences**: Adjust session lengths, breaks, and work frequency (work every other day, etc.).
 - **Responsive Design**: Works seamlessly across devices for a smooth experience wherever you go.
 
+## 🌸 Figma Link
+https://www.figma.com/proto/URMUTFXrbqdgodmtNqFw0F/Focus-Flow---Clean-Version?node-id=2-2&p=f&t=ZiG269o86urbuhmu-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1
+
 ## 🔧 Technologies Used
   - React + libraries
   - HTML/CSS
