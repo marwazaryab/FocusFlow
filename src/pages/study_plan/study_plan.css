@@ -1,30 +1,40 @@
+/* Global Styles & Variables */
+:root {
+  --primary-text: #333;
+  --secondary-text: #555;
+  --accent: #e92f92;
+  --bg-light: #f4f4f9;
+  --font-stack: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-stack);
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 0;
+}
+
 .study-plan-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4f4f9;
   padding: 10px;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .study-plan-container h1 {
-  color: #333;
+  color: var(--primary-text);
   text-align: center;
   margin-bottom: 20px;
   font-size: 2.5rem;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 .instructions {
   text-align: center;
   font-size: 1.2rem;
-  color: #555;
+  color: var(--secondary-text);
   margin-bottom: 20px;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 form {
@@ -36,21 +46,17 @@ form {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 form div {
   margin-bottom: 15px;
-  
 }
 
 form label {
   font-weight: bold;
   margin-bottom: 8px;
   display: block;
-  color: #333;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+  color: var(--primary-text);
 }
 
 form textarea,
@@ -62,104 +68,92 @@ form input {
   border: 1px solid #ccc;
   font-size: 1rem;
   resize: vertical;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 form textarea {
   height: 100px;
-  font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 }
 
 form input {
   height: 40px;
 }
 
+/* Calendar Styles */
 .custom-calendar {
-    width: 100%;
-    max-width: 650px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-  }
-  
-  .react-calendar__month-view__weekdays {
-    display: flex;
-    justify-content: space-between; 
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 10px;
-    
-  }
-  
-  .react-calendar__month-view__weekdays__weekday {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 40px;
-    font-size: 1rem;
-    color: #333;
-    border-bottom: 1px dashed #aaa;
-    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 100%;
+  max-width: 650px;
+  margin: 30px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
 
-  }
-  
-  .react-calendar__tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    margin: 5px;
-    border-radius: 10px;
-    background-color: #3d2d2d;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font-family: 'Monserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
 
-  }
-  
-  .react-calendar__tile--active {
-    background-color: #e92f92;
+.react-calendar__month-view__weekdays__weekday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 40px;
+  font-size: 1rem;
+  color: var(--primary-text);
+  border-bottom: 1px dashed #aaa;
+}
 
-  }
-  .react-calendar__tile:hover {
-    background-color: #e92f92;
-  }
+.react-calendar__tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #3d2d2d;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .react-calendar__navigation {
-    display: flex;
-   gap: 20px;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  
-  .react-calendar__navigation button:hover {
-    background-color: #e92f92;
-  }
-  
-  .react-calendar__navigation span {
-    font-size: 1.2rem;
-    color: #ffffff;
-    font-weight: bold;
-    text-align: center;
-  }
+.react-calendar__tile--active,
+.react-calendar__tile:hover {
+  background-color: var(--accent);
+}
 
-  .react-calendar__month-view__days {
-    display: grid !important;
-    grid-template-columns: repeat(7, 60px); 
-    gap: 10px;   
-  }
-  
+.react-calendar__navigation {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
+.react-calendar__navigation button:hover {
+  background-color: var(--accent);
+}
+
+.react-calendar__navigation span {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 60px);
+  gap: 10px;
+}
+
+/* Output Section */
 .study-plan-output {
   margin-top: 20px;
   padding: 20px;
@@ -170,35 +164,20 @@ form input {
 }
 
 .study-plan-output h2 {
-  color: #333;
+  color: var(--primary-text);
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .study-plan-output p {
-  color: #555;
+  color: var(--secondary-text);
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .react-calendar__month-view__weekdays__weekday,
-  .react-calendar__tile {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
-
-  button {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
 }
 
 .task-list {
   margin-top: 15px;
   padding-left: 20px;
-  list-style-type: disc; 
+  list-style-type: disc;
 }
 
 .task-item {
@@ -210,4 +189,19 @@ form input {
   color: #2c3e50;
   font-size: 1.5rem;
   margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .react-calendar__month-view__weekdays__weekday,
+  .react-calendar__tile {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
 }
