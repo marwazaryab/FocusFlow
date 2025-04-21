@@ -6,8 +6,8 @@ function Home() {
   return (
     <div className="home-page">
       <video
-        className="intro_screen" //clas name is for css name to style section
-        src="/intro_screen.mov" // TODO switch to mp4 file for more accomidation
+        className="intro_screen" 
+        src="/intro_screen.mov" 
         autoPlay
         loop
         muted

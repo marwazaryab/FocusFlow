@@ -3,14 +3,17 @@ import ReactCalendar from 'react-calendar';
 import './study_plan.css';
 
 const StudyPlan = () => {
+
+  // state variables 
   const [goals, setGoals] = useState('');
   const [deadlines, setDeadlines] = useState('');
   const [preferences, setPreferences] = useState('');
   const [studyPlanData, setStudyPlanData] = useState({});
   const [date, setDate] = useState(new Date());
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // messages
+  const [error, setError] = useState(''); // messages
 
+  // function to format the js object to a string
   const formatDate = (date) => {
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const day = date.getDate().toString().padStart(2, '0');
@@ -18,22 +21,26 @@ const StudyPlan = () => {
     return `${month}/${day}/${year}`;
   };
 
+  // update the data state
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
+  // study plan generation process
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
+    // prep form data in an object
     const requestData = {
       goals,
       deadlines,
       preferences,
-      date: date.toISOString(),
+      date: date.toISOString(), // compatable with backend
     };
 
+    // send post request to backend
     try {
       const response = await fetch('http://localhost:5003/api/study_plan', {
         method: 'POST',
@@ -47,11 +54,14 @@ const StudyPlan = () => {
         throw new Error('Error: failed to fetch study plan');
       }
 
+      // parse json
       const data = await response.json();
-      const { dailyTasks } = data;
+      const { dailyTasks } = data; // object to store tasks sent from backend
 
       console.log('Returned studyPlanData:', dailyTasks);
       setStudyPlanData(dailyTasks || {});
+
+      // reset inputs
       setGoals('');
       setDeadlines('');
       setPreferences('');
@@ -65,8 +75,13 @@ const StudyPlan = () => {
   const formattedDate = formatDate(date);
 
   return (
+
+    // main wrapper div
     <div className="study-plan-container">
+
+      {/** div for form*/}
       <div className="form-container">
+
         <h1>Generate Your Study Plan</h1>
         <p className="instructions">
           Fill out the fields below to receive a personalized study plan:
@@ -74,7 +89,10 @@ const StudyPlan = () => {
 
         {error && <p className="error-message">{error}</p>}
 
+        {/** form submission*/}
         <form onSubmit={handleSubmit}>
+
+          {/** link responses to state*/}
           <div className="input-group">
             <label htmlFor="goals">Goals:</label>
             <textarea
@@ -84,7 +102,7 @@ const StudyPlan = () => {
               placeholder="Enter your study goals"
             />
           </div>
-
+          {/** link responses to state*/}
           <div className="input-group">
             <label htmlFor="deadlines">Deadlines:</label>
             <input
@@ -95,7 +113,7 @@ const StudyPlan = () => {
               placeholder="Enter your deadlines (mm/dd/yyyy)"
             />
           </div>
-
+          {/** link responses to state*/}
           <div className="input-group">
             <label htmlFor="preferences">Preferences:</label>
             <textarea
@@ -112,6 +130,7 @@ const StudyPlan = () => {
         </form>
       </div>
 
+      {/** calendar wrapper*/}
       <div className="calendar-container">
         <ReactCalendar
           onChange={handleDateChange}
@@ -119,10 +138,13 @@ const StudyPlan = () => {
           className="custom-calendar"
         />
       </div>
-
+      {/** display study plan*/}
+      {/** check if study plan data exists + formatted date plan exists*/}
       {studyPlanData && studyPlanData[formattedDate] ? (
         <div className="study-plan-output">
           <h2 className="plan-date">📅 Study Plan for {formattedDate}:</h2>
+
+          {/** display plan into tasks - filter out empty strings*/}
           <ul className="task-list">
             {studyPlanData[formattedDate]
               .split('\n')
