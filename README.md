@@ -65,7 +65,4 @@ https://www.figma.com/proto/URMUTFXrbqdgodmtNqFw0F/Focus-Flow---Clean-Version?no
 <img width="1103" alt="generated" src="https://github.com/user-attachments/assets/7cf35d7d-b05e-446a-a1dd-43de8631b69f" />
 
 
-## 👷‍♀️ Contributors
-<img width="1101" alt="credits" src="https://github.com/user-attachments/assets/b7731663-64ac-42c2-9018-8e066c481d29" />
-
 
